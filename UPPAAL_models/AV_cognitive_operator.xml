@@ -31,57 +31,78 @@ bool av1_weed_detected_cs;</declaration>
 			<name x="-255" y="-110">WaitForPositionData</name>
 		</location>
 		<location id="id3" x="-425" y="34">
+			<name x="-561" y="17">ErrorHandling</name>
+			<label kind="comments" x="-561" y="42">State for
+error handling</label>
 		</location>
 		<location id="id4" x="-119" y="34">
+			<name x="-102" y="17">CalculateDirectionError</name>
 		</location>
 		<location id="id5" x="-272" y="289">
+			<committed/>
 		</location>
-		<location id="id6" x="-425" y="161">
+		<location id="id6" x="-34" y="161">
+			<name x="-17" y="144">CorrectDirection</name>
 		</location>
-		<location id="id7" x="-119" y="161">
+		<location id="id7" x="-204" y="161">
+			<name x="-331" y="144">HoldDirection</name>
 		</location>
 		<init ref="id0"/>
 		<transition id="id8">
-			<source ref="id5"/>
-			<target ref="id1"/>
-			<nail x="-272" y="357"/>
-			<nail x="-586" y="357"/>
-			<nail x="-586" y="-221"/>
+			<source ref="id7"/>
+			<target ref="id5"/>
 		</transition>
 		<transition id="id9">
 			<source ref="id4"/>
 			<target ref="id7"/>
+			<label kind="comments" x="-314" y="68">Direction needs
+no corrected</label>
 		</transition>
 		<transition id="id10">
 			<source ref="id6"/>
 			<target ref="id5"/>
+			<nail x="-34" y="289"/>
 		</transition>
 		<transition id="id11">
-			<source ref="id7"/>
-			<target ref="id5"/>
+			<source ref="id4"/>
+			<target ref="id6"/>
+			<label kind="comments" x="-59" y="68">Direction needs
+to be corrected</label>
 		</transition>
 		<transition id="id12">
 			<source ref="id3"/>
-			<target ref="id6"/>
+			<target ref="id5"/>
+			<nail x="-425" y="161"/>
 		</transition>
 		<transition id="id13">
-			<source ref="id2"/>
-			<target ref="id3"/>
-			<label kind="guard" x="-467" y="-34">clk_ds&gt;2500</label>
+			<source ref="id5"/>
+			<target ref="id1"/>
+			<nail x="-272" y="357"/>
+			<nail x="-663" y="357"/>
+			<nail x="-663" y="-221"/>
 		</transition>
 		<transition id="id14">
 			<source ref="id2"/>
-			<target ref="id4"/>
-			<label kind="guard" x="-178" y="-34">clk_ds&lt;=2500</label>
-			<label kind="synchronisation" x="-178" y="-51">position_data?</label>
+			<target ref="id3"/>
+			<label kind="guard" x="-442" y="-51">clk_ds&gt;2500</label>
+			<label kind="comments" x="-629" y="-76">Response from
+VisionSystem timeout</label>
 		</transition>
 		<transition id="id15">
+			<source ref="id2"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-195" y="-51">clk_ds&lt;=2500</label>
+			<label kind="synchronisation" x="-195" y="-68">position_data?</label>
+			<label kind="comments" x="-68" y="-68">Response from
+VisionSystem within deadline</label>
+		</transition>
+		<transition id="id16">
 			<source ref="id1"/>
 			<target ref="id2"/>
 			<label kind="assignment" x="-263" y="-187">clk_ds=0</label>
 			<label kind="comments" x="-263" y="-161">Resetting the clock</label>
 		</transition>
-		<transition id="id16">
+		<transition id="id17">
 			<source ref="id0"/>
 			<target ref="id1"/>
 		</transition>
@@ -89,79 +110,79 @@ bool av1_weed_detected_cs;</declaration>
 	<template>
 		<name>CropProtectionSystem</name>
 		<parameter>chan &amp;trig_operation, bool &amp;disease_detected</parameter>
-		<location id="id17" x="110" y="-509">
+		<location id="id18" x="110" y="-509">
 		</location>
-		<location id="id18" x="110" y="-382">
+		<location id="id19" x="110" y="-382">
 			<name x="127" y="-399">Idle</name>
 		</location>
-		<location id="id19" x="272" y="0">
+		<location id="id20" x="272" y="0">
 			<name x="289" y="-17">GetPosition</name>
 			<label kind="comments" x="289" y="8">Getting the position if the plants with diseases</label>
 		</location>
-		<location id="id20" x="110" y="-255">
+		<location id="id21" x="110" y="-255">
 			<name x="127" y="-271">ReactToData</name>
 		</location>
-		<location id="id21" x="272" y="-128">
+		<location id="id22" x="272" y="-128">
 			<name x="290" y="-144">Disease</name>
 			<label kind="comments" x="289" y="-119">Entry-point for curing diseases</label>
 			<committed/>
 		</location>
-		<location id="id22" x="-42" y="-127">
+		<location id="id23" x="-42" y="-127">
 			<name x="-136" y="-145">NoDisease</name>
 			<committed/>
 		</location>
-		<location id="id23" x="272" y="127">
+		<location id="id24" x="272" y="127">
 			<name x="289" y="110">SprayPesticides</name>
 			<label kind="comments" x="289" y="136">Spraying pesticides to cure the diseases</label>
 		</location>
-		<location id="id24" x="110" y="255">
+		<location id="id25" x="110" y="255">
 			<committed/>
 		</location>
-		<init ref="id17"/>
-		<transition id="id25">
-			<source ref="id24"/>
-			<target ref="id18"/>
+		<init ref="id18"/>
+		<transition id="id26">
+			<source ref="id25"/>
+			<target ref="id19"/>
 			<nail x="110" y="314"/>
 			<nail x="-221" y="314"/>
 			<nail x="-221" y="-382"/>
 		</transition>
-		<transition id="id26">
-			<source ref="id22"/>
-			<target ref="id24"/>
-			<nail x="-42" y="127"/>
-		</transition>
 		<transition id="id27">
 			<source ref="id23"/>
-			<target ref="id24"/>
+			<target ref="id25"/>
+			<nail x="-42" y="127"/>
+		</transition>
+		<transition id="id28">
+			<source ref="id24"/>
+			<target ref="id25"/>
 			<label kind="assignment" x="187" y="195">disease_detected=false</label>
 			<label kind="comments" x="187" y="221">Resetting the flag</label>
 		</transition>
-		<transition id="id28">
-			<source ref="id19"/>
-			<target ref="id23"/>
-		</transition>
 		<transition id="id29">
-			<source ref="id21"/>
-			<target ref="id19"/>
+			<source ref="id20"/>
+			<target ref="id24"/>
 		</transition>
 		<transition id="id30">
-			<source ref="id18"/>
+			<source ref="id22"/>
 			<target ref="id20"/>
-			<label kind="synchronisation" x="119" y="-340">trig_operation?</label>
 		</transition>
 		<transition id="id31">
-			<source ref="id17"/>
-			<target ref="id18"/>
+			<source ref="id19"/>
+			<target ref="id21"/>
+			<label kind="synchronisation" x="119" y="-340">trig_operation?</label>
 		</transition>
 		<transition id="id32">
-			<source ref="id20"/>
-			<target ref="id21"/>
+			<source ref="id18"/>
+			<target ref="id19"/>
+		</transition>
+		<transition id="id33">
+			<source ref="id21"/>
+			<target ref="id22"/>
 			<label kind="guard" x="221" y="-221">disease_detected==true</label>
 			<label kind="comments" x="221" y="-195">Curing diseases if flag was set by StatusSystem</label>
 		</transition>
-		<transition id="id33">
-			<source ref="id20"/>
-			<target ref="id22"/>
+		<transition id="id34">
+			<source ref="id21"/>
+			<target ref="id23"/>
 			<label kind="guard" x="-195" y="-246">disease_detected==false</label>
 			<label kind="comments" x="-195" y="-221">Returning to idle if no
 flag was set</label>
@@ -170,79 +191,79 @@ flag was set</label>
 	<template>
 		<name>WeedingSystem</name>
 		<parameter>chan &amp;trig_operation, bool &amp;weed_detected</parameter>
-		<location id="id34" x="51" y="-509">
+		<location id="id35" x="51" y="-509">
 		</location>
-		<location id="id35" x="51" y="-382">
+		<location id="id36" x="51" y="-382">
 			<name x="68" y="-399">Idle</name>
 		</location>
-		<location id="id36" x="204" y="0">
+		<location id="id37" x="204" y="0">
 			<name x="221" y="-17">GetPosition</name>
 			<label kind="comments" x="221" y="8">Getting the weed's position</label>
 		</location>
-		<location id="id37" x="51" y="-255">
+		<location id="id38" x="51" y="-255">
 			<name x="68" y="-272">ReactToData</name>
 			<committed/>
 		</location>
-		<location id="id38" x="204" y="-128">
+		<location id="id39" x="204" y="-128">
 			<name x="222" y="-144">Weed</name>
 			<label kind="comments" x="221" y="-119">Entry-point for processing weed</label>
 		</location>
-		<location id="id39" x="-102" y="-127">
+		<location id="id40" x="-102" y="-127">
 			<name x="-171" y="-144">NoWeed</name>
 			<committed/>
 		</location>
-		<location id="id40" x="204" y="127">
+		<location id="id41" x="204" y="127">
 			<name x="221" y="110">EliminateWeed</name>
 			<label kind="comments" x="221" y="136">Eliminating the weed</label>
 		</location>
-		<location id="id41" x="51" y="255">
+		<location id="id42" x="51" y="255">
 			<committed/>
 		</location>
-		<init ref="id34"/>
-		<transition id="id42">
-			<source ref="id41"/>
-			<target ref="id35"/>
+		<init ref="id35"/>
+		<transition id="id43">
+			<source ref="id42"/>
+			<target ref="id36"/>
 			<nail x="51" y="314"/>
 			<nail x="-272" y="306"/>
 			<nail x="-272" y="-382"/>
 		</transition>
-		<transition id="id43">
-			<source ref="id39"/>
-			<target ref="id41"/>
-			<nail x="-102" y="127"/>
-		</transition>
 		<transition id="id44">
 			<source ref="id40"/>
-			<target ref="id41"/>
+			<target ref="id42"/>
+			<nail x="-102" y="127"/>
+		</transition>
+		<transition id="id45">
+			<source ref="id41"/>
+			<target ref="id42"/>
 			<label kind="assignment" x="119" y="196">weed_detected=false</label>
 			<label kind="comments" x="119" y="221">Resetting the flag</label>
 		</transition>
-		<transition id="id45">
-			<source ref="id36"/>
-			<target ref="id40"/>
-		</transition>
 		<transition id="id46">
-			<source ref="id38"/>
-			<target ref="id36"/>
+			<source ref="id37"/>
+			<target ref="id41"/>
 		</transition>
 		<transition id="id47">
-			<source ref="id35"/>
+			<source ref="id39"/>
 			<target ref="id37"/>
-			<label kind="synchronisation" x="60" y="-340">trig_operation?</label>
 		</transition>
 		<transition id="id48">
-			<source ref="id34"/>
-			<target ref="id35"/>
+			<source ref="id36"/>
+			<target ref="id38"/>
+			<label kind="synchronisation" x="60" y="-340">trig_operation?</label>
 		</transition>
 		<transition id="id49">
-			<source ref="id37"/>
-			<target ref="id38"/>
+			<source ref="id35"/>
+			<target ref="id36"/>
+		</transition>
+		<transition id="id50">
+			<source ref="id38"/>
+			<target ref="id39"/>
 			<label kind="guard" x="153" y="-230">weed_detected==true</label>
 			<label kind="comments" x="153" y="-204">Processing weed if flag was set by StatusSystem</label>
 		</transition>
-		<transition id="id50">
-			<source ref="id37"/>
-			<target ref="id39"/>
+		<transition id="id51">
+			<source ref="id38"/>
+			<target ref="id40"/>
 			<label kind="guard" x="-246" y="-254">weed_detected==false</label>
 			<label kind="comments" x="-246" y="-229">Returning to idle if no
 flag was set</label>
@@ -251,200 +272,202 @@ flag was set</label>
 	<template>
 		<name>StatusSystem</name>
 		<parameter>chan &amp;trig_operation, chan &amp;image_data, bool &amp;disease_detected_ps, bool &amp;disease_detected_cs, bool &amp;weed_detected_ws, bool &amp;weed_detected_cs</parameter>
-		<location id="id51" x="144" y="-502">
+		<location id="id52" x="144" y="-502">
 		</location>
-		<location id="id52" x="144" y="-375">
+		<location id="id53" x="144" y="-375">
 			<name x="161" y="-399">Idle</name>
 		</location>
-		<location id="id53" x="144" y="-247">
+		<location id="id54" x="144" y="-247">
 			<name x="161" y="-272">WaitForImageData</name>
 			<label kind="comments" x="161" y="-246">Waiting for the next dataset from the VisionSystem</label>
 		</location>
-		<location id="id54" x="144" y="-120">
+		<location id="id55" x="144" y="-120">
 			<name x="161" y="-136">ReactToData</name>
 			<committed/>
 		</location>
-		<location id="id55" x="144" y="8">
+		<location id="id56" x="144" y="8">
 			<name x="161" y="-8">Disease</name>
 			<committed/>
 		</location>
-		<location id="id56" x="391" y="8">
+		<location id="id57" x="391" y="8">
 			<name x="409" y="-8">Weed</name>
 			<committed/>
 		</location>
-		<location id="id57" x="-93" y="8">
+		<location id="id58" x="-93" y="8">
 			<name x="-169" y="-8">Healthy</name>
 			<committed/>
 		</location>
-		<location id="id58" x="144" y="136">
+		<location id="id59" x="144" y="136">
 			<committed/>
 		</location>
-		<location id="id59" x="391" y="136">
+		<location id="id60" x="391" y="136">
 			<committed/>
 		</location>
-		<location id="id60" x="144" y="391">
+		<location id="id61" x="144" y="391">
 		</location>
-		<init ref="id51"/>
-		<transition id="id61">
-			<source ref="id60"/>
-			<target ref="id52"/>
+		<init ref="id52"/>
+		<transition id="id62">
+			<source ref="id61"/>
+			<target ref="id53"/>
 			<nail x="144" y="459"/>
 			<nail x="-187" y="459"/>
 			<nail x="-187" y="-374"/>
 		</transition>
-		<transition id="id62">
-			<source ref="id57"/>
-			<target ref="id60"/>
-			<nail x="-93" y="263"/>
-		</transition>
 		<transition id="id63">
 			<source ref="id58"/>
-			<target ref="id60"/>
-			<label kind="assignment" x="153" y="212">disease_detected_cs=true</label>
+			<target ref="id61"/>
+			<nail x="-93" y="263"/>
 		</transition>
 		<transition id="id64">
 			<source ref="id59"/>
-			<target ref="id60"/>
+			<target ref="id61"/>
+			<label kind="assignment" x="153" y="212">disease_detected_cs=true</label>
+		</transition>
+		<transition id="id65">
+			<source ref="id60"/>
+			<target ref="id61"/>
 			<label kind="assignment" x="399" y="212">weed_detected_cs=true</label>
 			<nail x="391" y="263"/>
 		</transition>
-		<transition id="id65">
-			<source ref="id56"/>
-			<target ref="id59"/>
+		<transition id="id66">
+			<source ref="id57"/>
+			<target ref="id60"/>
 			<label kind="assignment" x="399" y="51">weed_detected_ws=true</label>
 		</transition>
-		<transition id="id66">
-			<source ref="id55"/>
-			<target ref="id58"/>
+		<transition id="id67">
+			<source ref="id56"/>
+			<target ref="id59"/>
 			<label kind="assignment" x="153" y="51">disease_detected_ps=true</label>
 		</transition>
-		<transition id="id67">
-			<source ref="id54"/>
-			<target ref="id56"/>
-		</transition>
 		<transition id="id68">
-			<source ref="id54"/>
-			<target ref="id55"/>
-		</transition>
-		<transition id="id69">
-			<source ref="id54"/>
+			<source ref="id55"/>
 			<target ref="id57"/>
 		</transition>
+		<transition id="id69">
+			<source ref="id55"/>
+			<target ref="id56"/>
+		</transition>
 		<transition id="id70">
-			<source ref="id53"/>
-			<target ref="id54"/>
+			<source ref="id55"/>
+			<target ref="id58"/>
+		</transition>
+		<transition id="id71">
+			<source ref="id54"/>
+			<target ref="id55"/>
 			<label kind="synchronisation" x="152" y="-205">image_data?</label>
 			<label kind="comments" x="152" y="-179">Dataset from the VisionSystem ready</label>
 		</transition>
-		<transition id="id71">
-			<source ref="id52"/>
-			<target ref="id53"/>
+		<transition id="id72">
+			<source ref="id53"/>
+			<target ref="id54"/>
 			<label kind="synchronisation" x="152" y="-339">trig_operation?</label>
 			<label kind="comments" x="152" y="-314">Operation triggered from RoleManager</label>
 		</transition>
-		<transition id="id72">
-			<source ref="id51"/>
-			<target ref="id52"/>
+		<transition id="id73">
+			<source ref="id52"/>
+			<target ref="id53"/>
 		</transition>
 	</template>
 	<template>
 		<name>CommunicationSystem</name>
 		<parameter>bool &amp;disease_detected, bool &amp;weed_detected</parameter>
-		<location id="id73" x="17" y="-34">
+		<location id="id74" x="17" y="-34">
 			<name x="34" y="-51">NotifyWeeders</name>
+			<label kind="comments" x="34" y="-25">Notifying all other weeders</label>
 		</location>
-		<location id="id74" x="-119" y="-161">
+		<location id="id75" x="-119" y="-161">
 			<name x="-110" y="-187">Idle</name>
 		</location>
-		<location id="id75" x="-119" y="-289">
+		<location id="id76" x="-119" y="-289">
 		</location>
-		<location id="id76" x="-119" y="93">
+		<location id="id77" x="-119" y="93">
 			<committed/>
 		</location>
-		<location id="id77" x="-255" y="-34">
+		<location id="id78" x="-255" y="-34">
 			<name x="-408" y="-51">NotifyProtectors</name>
+			<label kind="comments" x="-527" y="-25">Notifying all other protectors</label>
 		</location>
-		<init ref="id75"/>
-		<transition id="id78">
-			<source ref="id76"/>
-			<target ref="id74"/>
-			<nail x="-119" y="170"/>
-			<nail x="-467" y="170"/>
-			<nail x="-467" y="-161"/>
-		</transition>
+		<init ref="id76"/>
 		<transition id="id79">
 			<source ref="id77"/>
-			<target ref="id76"/>
-			<label kind="assignment" x="-391" y="17">disease_detected=false</label>
+			<target ref="id75"/>
+			<nail x="-119" y="170"/>
+			<nail x="-561" y="170"/>
+			<nail x="-561" y="-161"/>
 		</transition>
 		<transition id="id80">
-			<source ref="id74"/>
+			<source ref="id78"/>
 			<target ref="id77"/>
-			<label kind="guard" x="-391" y="-110">disease_detected==true</label>
+			<label kind="assignment" x="-391" y="17">disease_detected=false</label>
 		</transition>
 		<transition id="id81">
-			<source ref="id73"/>
-			<target ref="id76"/>
-			<label kind="assignment" x="-42" y="17">weed_detected=false</label>
+			<source ref="id75"/>
+			<target ref="id78"/>
+			<label kind="guard" x="-391" y="-110">disease_detected==true</label>
 		</transition>
 		<transition id="id82">
 			<source ref="id74"/>
-			<target ref="id73"/>
-			<label kind="guard" x="-42" y="-110">weed_detected==true</label>
+			<target ref="id77"/>
+			<label kind="assignment" x="-42" y="17">weed_detected=false</label>
 		</transition>
 		<transition id="id83">
 			<source ref="id75"/>
 			<target ref="id74"/>
+			<label kind="guard" x="-42" y="-110">weed_detected==true</label>
+		</transition>
+		<transition id="id84">
+			<source ref="id76"/>
+			<target ref="id75"/>
 		</transition>
 	</template>
 	<template>
 		<name>VisionSystem</name>
 		<parameter>chan &amp;image_data</parameter>
 		<declaration>clock clk_vs;</declaration>
-		<location id="id84" x="-8" y="-552">
+		<location id="id85" x="-8" y="-552">
 			<name x="8" y="-570">GetImage</name>
 			<label kind="comments" x="8" y="-544">Getting an image from the camera</label>
 		</location>
-		<location id="id85" x="-8" y="-425">
+		<location id="id86" x="-8" y="-425">
 			<name x="8" y="-443">AnalyzeImage</name>
 			<label kind="comments" x="8" y="-417">Analyzing the image</label>
 		</location>
-		<location id="id86" x="-8" y="-170">
+		<location id="id87" x="-8" y="-170">
 			<name x="8" y="-188">ImprovingDetection</name>
 			<label kind="comments" x="8" y="-162">Using the new data of the analyzed image to improve the detection</label>
 		</location>
-		<location id="id87" x="-8" y="-680">
+		<location id="id88" x="-8" y="-680">
 			<name x="8" y="-697">Idle</name>
 		</location>
-		<location id="id88" x="-8" y="-808">
+		<location id="id89" x="-8" y="-808">
 		</location>
-		<init ref="id88"/>
-		<transition id="id89">
-			<source ref="id86"/>
-			<target ref="id87"/>
+		<init ref="id89"/>
+		<transition id="id90">
+			<source ref="id87"/>
+			<target ref="id88"/>
 			<nail x="-8" y="-102"/>
 			<nail x="-76" y="-102"/>
 			<nail x="-76" y="-680"/>
 		</transition>
-		<transition id="id90">
-			<source ref="id85"/>
-			<target ref="id86"/>
+		<transition id="id91">
+			<source ref="id86"/>
+			<target ref="id87"/>
 			<label kind="guard" x="0" y="-331">clk_vs&gt;=100</label>
 			<label kind="synchronisation" x="0" y="-314">image_data!</label>
 			<label kind="comments" x="0" y="-289">Simulating analyzation time and
 passing data to sub-systems</label>
 		</transition>
-		<transition id="id91">
-			<source ref="id87"/>
-			<target ref="id84"/>
-		</transition>
 		<transition id="id92">
 			<source ref="id88"/>
-			<target ref="id87"/>
+			<target ref="id85"/>
 		</transition>
 		<transition id="id93">
-			<source ref="id84"/>
-			<target ref="id85"/>
+			<source ref="id89"/>
+			<target ref="id88"/>
+		</transition>
+		<transition id="id94">
+			<source ref="id85"/>
+			<target ref="id86"/>
 			<label kind="assignment" x="0" y="-476">clk_vs=0</label>
 			<label kind="comments" x="0" y="-501">Resetting the clock</label>
 		</transition>
@@ -454,55 +477,50 @@ passing data to sub-systems</label>
 		<parameter>bool observer, bool weeder, bool cropProtection, chan &amp;trig_vs, chan &amp;msg_s, chan &amp;msg_w, chan &amp;msg_p</parameter>
 		<declaration>// Place local declarations here.
 </declaration>
-		<location id="id94" x="-1351" y="-664">
+		<location id="id95" x="-1351" y="-664">
 		</location>
-		<location id="id95" x="-1351" y="-791">
+		<location id="id96" x="-1351" y="-791">
 		</location>
-		<location id="id96" x="-1351" y="-919">
+		<location id="id97" x="-1351" y="-919">
 		</location>
-		<location id="id97" x="-1351" y="-1046">
-		</location>
-		<location id="id98" x="-1351" y="-1300">
+		<location id="id98" x="-1351" y="-1045">
+			<name x="-1334" y="-1071">Idle</name>
 		</location>
 		<location id="id99" x="-1351" y="-1172">
-			<name x="-1334" y="-1190">Idle</name>
 		</location>
-		<init ref="id98"/>
+		<init ref="id99"/>
 		<transition id="id100">
-			<source ref="id94"/>
-			<target ref="id99"/>
-			<nail x="-1351" y="-603"/>
-			<nail x="-1793" y="-603"/>
-			<nail x="-1793" y="-1173"/>
+			<source ref="id95"/>
+			<target ref="id98"/>
+			<nail x="-1351" y="-612"/>
+			<nail x="-1810" y="-612"/>
+			<nail x="-1810" y="-1062"/>
+			<nail x="-1436" y="-1062"/>
 		</transition>
 		<transition id="id101">
 			<source ref="id99"/>
-			<target ref="id97"/>
+			<target ref="id98"/>
 		</transition>
 		<transition id="id102">
-			<source ref="id98"/>
-			<target ref="id99"/>
-		</transition>
-		<transition id="id103">
-			<source ref="id95"/>
-			<target ref="id94"/>
+			<source ref="id96"/>
+			<target ref="id95"/>
 			<label kind="guard" x="-1614" y="-748">cropProtection==true</label>
 			<label kind="synchronisation" x="-1615" y="-731">msg_p!</label>
 			<label kind="comments" x="-1767" y="-706">Triggering the crop protection system</label>
 			<nail x="-1436" y="-774"/>
 			<nail x="-1436" y="-680"/>
 		</transition>
-		<transition id="id104">
-			<source ref="id95"/>
-			<target ref="id94"/>
+		<transition id="id103">
+			<source ref="id96"/>
+			<target ref="id95"/>
 			<label kind="guard" x="-1257" y="-748">cropProtection==false</label>
 			<label kind="comments" x="-1257" y="-706">Triggering no action</label>
 			<nail x="-1266" y="-774"/>
 			<nail x="-1266" y="-680"/>
 		</transition>
-		<transition id="id105">
-			<source ref="id96"/>
-			<target ref="id95"/>
+		<transition id="id104">
+			<source ref="id97"/>
+			<target ref="id96"/>
 			<label kind="guard" x="-1546" y="-876">weeder==true</label>
 			<label kind="synchronisation" x="-1547" y="-858">msg_w!</label>
 			<label kind="comments" x="-1699" y="-833">Triggering the weeding system</label>
@@ -510,26 +528,26 @@ passing data to sub-systems</label>
 			<nail x="-1436" y="-901"/>
 			<nail x="-1436" y="-808"/>
 		</transition>
-		<transition id="id106">
-			<source ref="id96"/>
-			<target ref="id95"/>
+		<transition id="id105">
+			<source ref="id97"/>
+			<target ref="id96"/>
 			<label kind="guard" x="-1257" y="-876">weeder==false</label>
 			<label kind="comments" x="-1257" y="-833">Triggering no action</label>
 			<nail x="-1266" y="-901"/>
 			<nail x="-1266" y="-808"/>
 		</transition>
-		<transition id="id107">
-			<source ref="id97"/>
-			<target ref="id96"/>
+		<transition id="id106">
+			<source ref="id98"/>
+			<target ref="id97"/>
 			<label kind="guard" x="-1563" y="-1003">observer==true</label>
 			<label kind="synchronisation" x="-1564" y="-986">msg_s!</label>
 			<label kind="comments" x="-1708" y="-961">Triggering plant status system</label>
 			<nail x="-1436" y="-1029"/>
 			<nail x="-1436" y="-935"/>
 		</transition>
-		<transition id="id108">
-			<source ref="id97"/>
-			<target ref="id96"/>
+		<transition id="id107">
+			<source ref="id98"/>
+			<target ref="id97"/>
 			<label kind="guard" x="-1258" y="-1003">observer==false</label>
 			<label kind="comments" x="-1257" y="-961">Triggering no action</label>
 			<nail x="-1267" y="-1029"/>
@@ -537,7 +555,7 @@ passing data to sub-systems</label>
 		</transition>
 	</template>
 	<system>//Constructor of the RoleManager
-//RoleManager(bool observer, bool weeder, bool cropProtection, chan &amp;msg_c, chan &amp;msg_v, chan &amp;msg_d, chan &amp;msg_s, chan &amp;msg_w, chan &amp;msg_p)
+//RoleManager(bool observer, bool weeder, bool cropProtection, chan &amp;trig_vs, chan &amp;msg_s, chan &amp;msg_w, chan &amp;msg_p)
 
 //AV1
 rm1 = RoleManager(true, true, true, av1_trig_vs, av1_msg_s, av1_msg_w, av1_msg_p);
@@ -555,7 +573,7 @@ system rm1, cs1, vs1, ds1, ss1, ws1, ps1;</system>
 		<query>
 			<formula>A[] not deadlock</formula>
 			<comment>Checking if the system has no deadlocks</comment>
-			<result outcome="success" type="quality" timestamp="2024-06-10 11:30:05 +0200">
+			<result outcome="success" type="quality" timestamp="2024-06-11 12:16:17 +0200">
 			</result>
 		</query>
 	</queries>
