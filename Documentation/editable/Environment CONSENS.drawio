@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" modified="2024-06-04T10:28:45.381Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="ZJNUSxk57gQeUQTJvY9r" version="24.4.13" type="onedrive">
+  <diagram name="Page-1" id="IGNTPBNIN9qhbQrElmkP">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-13" value="Eliminator Product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZibeZhvoA12vaesiCCjZ-1" target="ZibeZhvoA12vaesiCCjZ-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZibeZhvoA12vaesiCCjZ-1" target="ZibeZhvoA12vaesiCCjZ-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="365" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-15" value="Pesticide" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ZibeZhvoA12vaesiCCjZ-14">
+          <mxGeometry x="-0.0309" y="4" relative="1" as="geometry">
+            <mxPoint x="14" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-1" value="AV" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#cdedff;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="305" y="240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.375;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="ZibeZhvoA12vaesiCCjZ-2" target="ZibeZhvoA12vaesiCCjZ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-20" value="Sign type" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ZibeZhvoA12vaesiCCjZ-19">
+          <mxGeometry x="-0.5691" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-2" value="Signs" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffff99;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="422" as="sourcePoint" />
+            <mxPoint x="365" y="321.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-18" value="Path marks" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ZibeZhvoA12vaesiCCjZ-17">
+          <mxGeometry x="0.2314" y="-5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-3" value="Path" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffff99;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="305" y="420" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-4" value="Unhealthy Plants" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffff99;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-5" value="Weeds" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffff99;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="590" y="330" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;shape=link;dashed=1;strokeColor=#FF0000;" edge="1" parent="1" source="ZibeZhvoA12vaesiCCjZ-7" target="ZibeZhvoA12vaesiCCjZ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-9" value="snow, rain, wind etc" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ZibeZhvoA12vaesiCCjZ-8">
+          <mxGeometry x="-0.3788" relative="1" as="geometry">
+            <mxPoint x="1" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;shape=link;strokeColor=#FF0000;dashed=1;" edge="1" parent="1" source="ZibeZhvoA12vaesiCCjZ-7" target="ZibeZhvoA12vaesiCCjZ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-12" value="snow, rain, wind etc" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="ZibeZhvoA12vaesiCCjZ-10">
+          <mxGeometry x="0.0652" y="7" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZibeZhvoA12vaesiCCjZ-7" value="Environment" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffff99;strokeColor=#040608;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
