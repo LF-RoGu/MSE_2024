@@ -572,8 +572,32 @@ system rm1, cs1, vs1, ds1, ss1, ws1, ps1;</system>
 	<queries>
 		<query>
 			<formula>A[] not deadlock</formula>
-			<comment>Checking if the system has no deadlocks</comment>
-			<result outcome="success" type="quality" timestamp="2024-06-11 12:16:17 +0200">
+			<comment>Checking if the system has no deadlocks.</comment>
+			<result outcome="success" type="quality" timestamp="2024-07-14 12:37:48 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (not (ds1.HoldDirection and ds1.CorrectDirection))</formula>
+			<comment>Checking if the driving system is never holding and correcting the direction simultaneously.</comment>
+			<result outcome="success" type="quality" timestamp="2024-06-14 21:06:05 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (vs1.AnalyzeImage imply vs1.clk_vs &lt; 100)</formula>
+			<comment>Checking whether the state AnalyzeImage of the VisionSystem is only active when clk_vs is less than 100 clock ticks.</comment>
+			<result outcome="success" type="quality" timestamp="2024-06-14 21:06:07 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ds1.ErrorHandling</formula>
+			<comment>Checking if the state ErrorHandling of the DrivingSystem is reachable.</comment>
+			<result outcome="success" type="quality" timestamp="2024-07-14 13:53:25 +0200">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ds1.CalculateDirectionError</formula>
+			<comment>Checking if the state CalculateDirectionError of the DrivingSystem is reachable.</comment>
+			<result outcome="success" type="quality" timestamp="2024-07-14 13:58:30 +0200">
 			</result>
 		</query>
 	</queries>
