@@ -2,16 +2,16 @@
 MSE project repository for FH-Dortmund 2024
 
 ## Authors
-- [allerter](https://github.com/allerter)
-- [lhckmn](https://github.com/lhckmn)
-- [LF-RoGu](https://github.com/LF-RoGu)
-- [FurkanIxender](https://github.com/FurkanIxender)
+- Hazhir Amiri ([allerter](https://github.com/allerter))
+- Leander Hackmann ([lhckmn](https://github.com/lhckmn))
+- Luis Fernando Rodriguez Gutierrez ([LF-RoGu](https://github.com/LF-RoGu))
+- Furkan Iskender ([FurkanIxender](https://github.com/FurkanIxender))
 
 ## Description
 
 ## Structure
 
 ## Task Distribution
-| Name  	| [allerter](https://github.com/allerter)                                     	| [lhckmn](https://github.com/lhckmn)                                     	| [LF-RoGu](https://github.com/LF-RoGu)                                                         	| [Furkan]                     	|
+| Name  	| [Hazhir](https://github.com/allerter)                                     	| [Leander](https://github.com/lhckmn)                                     	| [Luis](https://github.com/LF-RoGu)                                                         	| [Furkan](https://github.com/FurkanIxender)                     	|
 |-------	|--------------------------------------------------	|------------------------------------------------------	|------------------------------------------------------------------------------------------	|----------------------------------------	|
-| Tasks 	| Task	| Task	| Task | Task	|
+| Tasks 	| CONSENS	| Cognitive Behavior	| CONSENS | MUML	|
